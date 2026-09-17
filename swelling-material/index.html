@@ -504,6 +504,13 @@
     render();
   });
 
+  app.addEventListener('focusin', e => {
+    const el = e.target;
+    if (el.tagName === 'INPUT' && el.type === 'number' && el.value === '0') {
+      el.value = '';
+    }
+  });
+
   app.addEventListener('change', e => {
     const field = e.target.dataset.field;
     if (!field) return;
